@@ -1,0 +1,18 @@
+<!-- 添加地图组件 -->
+<!-- 地图 -->
+<map id="map" latitude="{{location.latitude}}" longitude="{{location.longitude}}" scale="{{scale}}" setting="{{setting}}" enable-overlooking="{{isOverLooking}}" enable-3D="{{is3D}}" markers="{{markers}}">
+  <cover-view class="icon-container">
+    <cover-image src="/resources/account.png"></cover-image>
+    <cover-image 
+      src="/resources/my_location_new.png"
+      bindtap = "onMyLoactionTap"></cover-image>
+  </cover-view>
+
+  <!--使用colorui的bg-grey样式 -->
+  <cover-view 
+    class="btn-container bg-grey round"
+    bindtap = "onScanClicked">
+    <cover-view>扫码租车</cover-view>
+  </cover-view>
+</map>
+

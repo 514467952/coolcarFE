@@ -1,0 +1,83 @@
+<body>
+    <div class="toplxy">
+        <div id="title">晓昱租车</div>
+        <div id="learncss">css学习</div>
+    </div>
+    <div class="trips">
+        <div class="item blue">
+            <div>中关村到天安门</div>
+            <div>价格: 120元</div>
+        </div>
+        <div class="item red">
+            <div>陆家嘴到迪士尼</div>
+            <div>价格: 50元</div>
+            <div class="star"></div>
+        </div>
+        <div class="item  lxy">
+            <div class="lxy222">天河体育中心到广州塔</div>
+            <div class="lxy333">价格: 80元</div>
+        </div>
+    </div>
+
+    <!--div {} 表示选择所有的div-->
+    <!--#id 通过id选择元素-->
+    <style>
+        div.blue {
+            font-size: large;
+        }
+
+        #title {
+            font-size: 40px;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .item.blue {
+            color: cornflowerblue;
+        }
+
+        .item {
+            border: 2px solid;
+        }
+
+        .item.red {
+            position: relative;
+        }
+
+        .star {
+            width: 20px;
+            height: 20px;
+            background: red;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+        /*
+    flex-direction: column从上往下布局
+    */
+        .trips {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 200px;
+            border: 2px solid;
+            justify-content: space-evenly;
+        }
+
+        .toplxy {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .toplxy div.learncss {
+            display: flex;
+            flex-direction: column;
+            align-self: stretch;
+        }
+        
+    </style>
+</body>

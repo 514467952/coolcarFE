@@ -1,0 +1,51 @@
+/* pages/register/register.wxss */
+.container {
+    padding-top: 60rpx;
+}
+
+/*表单页页面样式*/
+.lic-tmpl {
+    width: 600rpx;
+    height: 450rpx;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*对勾样式*/
+.check {
+    right: 0;
+    top: 0;
+    width: 100rpx;
+    height: 100rpx;
+    display: inline-flex;
+    position: absolute;
+    z-index: 10;
+}
+/*驾照图片样式*/
+.stretch {
+    width: 600rpx;
+    height: 450rpx;
+}
+.cu-form-group .title {
+    /*4em表示4个字符的位置*/
+    min-width: calc(4em + 30rpx);
+}
+.lic-form {
+    width: 600rpx;
+}
+/*表单页页面样式end*/
+
+/*点击上传页面样式*/
+.lic-tmpl-img {
+    position: absolute;
+    opacity: 0.2;
+}
+.instruction {
+    position: absolute;
+    bottom: -74rpx;
+}
+.cuIcon-camerafill {
+    font-size: 172rpx;
+}
+/*点击上传页面样式end*/

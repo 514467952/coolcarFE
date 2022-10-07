@@ -1,0 +1,14 @@
+<!-- pages/learncss/learncss.wxml -->
+<!-- 如果showPath是true，就展示pages/learncss/learncss.wxml，否则不展示 -->
+<view class="container">
+    <text wx:if="{{showPath}}">pages/learncss/learncss.wxml</text>
+    <block wx:else>
+        <text>learncss</text>
+    </block>
+    <view class="list">
+        <view class="item cu-avatar xl radius {{val.id%2?'blue':'red'}}" wx:for="{{values}}" wx:for-item="val" wx:key="id">
+            person is {{val.name}}
+            <view class="cu-tag badge">99+</view>
+        </view>
+    </view>
+</view>

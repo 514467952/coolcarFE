@@ -1,0 +1,11 @@
+<!-- 注册页面 -->
+<view class="container">
+    <view class = "static">
+        <image class="sedan" src = "/resources/card_new.jpg"/>
+        <view class = "margin-top">
+            <view>驾驶安全是用户的责任</view>
+            <view>请将车辆停放在停车位内</view>
+        </view>
+        <button style="width:80%" class="bg-grey lg">立即开锁</button>
+    </view>
+</view>
