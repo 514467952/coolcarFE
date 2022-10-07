@@ -3,6 +3,7 @@ const app = getApp<IAppOption>()
 
 Page({
   isPageShowing: false,
+  avaterURL: "",
   data: {
     // 默认值s
     setting:{
@@ -45,7 +46,15 @@ Page({
       }
     ]
   },
-
+  // onLoad() {
+  //   const userInfo = app.globalData.userInfo
+  //   if (userInfo) {
+  //     this.setData({
+  //       avaterURL: userInfo.avatarUrl,
+  //     })
+  //   }
+  //   console.log("首页加载")
+  // },
   //扫码功能
   onScanClicked() {
     wx.scanCode({
@@ -59,7 +68,14 @@ Page({
   },
 
   onShow() {
-    this.isPageShowing = true
+    this.isPageShowing = true;
+    const userInfo = app.globalData.userInfo
+    if (userInfo) {
+      this.setData({
+        avaterURL: userInfo.avatarUrl,
+      })
+    }
+    console.log("首页展示")
   },
   onHide() {
     this.isPageShowing = false

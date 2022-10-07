@@ -1,66 +1,44 @@
 // pages/lock/lock.ts
+const shareLocationKey = "share_location"
+const avaterURLKey = "avater_url";
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    shareLocation: false,
+    avaterURL: "",
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad() {
-
+    const userInfo = getApp<IAppOption>().globalData.userInfo;
+    if(userInfo) {
+      this.setData({
+        avaterURL:userInfo.avatarUrl,
+      })
+    }
+    console.log("开锁页面加载")
+  },
+  //开锁页面获取用户信息
+  onGetUserInfo(){
+    console.log("请求获取用户信息")
+    wx.getUserProfile({
+      desc: '租辆酷车需要获取你的头像', 
+      success: (res) => {
+        console.log("回调回来的用户信息:",res.userInfo)
+        this.setData({
+          avaterURL:res.userInfo.avatarUrl,
+        })
+        getApp<IAppOption>().globalData.userInfo = res.userInfo;
+        wx.showToast({
+          title:"获取头像中",
+          icon: "loading",
+        })
+      }
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  //用户控制是否展示自己的头像
+  onShareLocation(e:any) {
+    const shareLocation: boolean = e.detail.value
+    //本地记录一份
+    wx.setStorageSync(shareLocationKey, shareLocation)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })
