@@ -154,5 +154,11 @@ Page({
       })
     }
     contiuneMoveCar()
-  }
+  },
+  //跳转到我的行程页面
+  onMyTripsTap() {
+    wx.navigateTo({
+      url: '/pages/mytrips/mytrips'
+    })
+  },
 })

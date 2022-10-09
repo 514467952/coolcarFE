@@ -34,6 +34,20 @@
           "query": "",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "行程页面",
+          "pathName": "pages/driving/driving",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "我的行程页面",
+          "pathName": "pages/mytrips/mytrips",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }
