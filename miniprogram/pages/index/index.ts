@@ -46,21 +46,24 @@ Page({
       }
     ]
   },
-  // onLoad() {
-  //   const userInfo = app.globalData.userInfo
-  //   if (userInfo) {
-  //     this.setData({
-  //       avaterURL: userInfo.avatarUrl,
-  //     })
-  //   }
-  //   console.log("首页加载")
-  // },
+  onLoad() {
+    const userInfo = app.globalData.userInfo
+    if (userInfo) {
+      this.setData({
+        avaterURL: userInfo.avatarUrl,
+      })
+    }
+    console.log("首页加载")
+  },
   //扫码功能
   onScanClicked() {
+    //TODO: get car id from scan result
+    const carID = "car123"
+    const redirectURL = `/pages/lock/lock?car_id=${carID}`
     wx.scanCode({
       success: () => {
         wx.navigateTo({
-          url:'/pages/register/register'
+          url:`/pages/register/register?redirect=${encodeURIComponent(redirectURL)}`
         })
       },
       fail: res => console.log(res),

@@ -1,5 +1,6 @@
 // pages/register/register.ts
 Page({
+  redirectURL: "",
   data: {
     licNo: "",
     name: "",
@@ -8,6 +9,11 @@ Page({
     genders:["未知","男","女","其他"],
     licImgURL: "",
     state: "UNSUBMITTED" as "UNSUBMITTED" | "PENDING" | "VERIFIED",
+  },
+  onLoad(opt) {
+    if(opt.redirect) {
+      this.redirectURL = decodeURIComponent(opt.redirect)
+    } 
   },
   onBirthDayChange(e:any) {
     this.setData({
@@ -63,9 +69,10 @@ Page({
     this.setData({
       state:"VERIFIED",
     })
-    
-    wx.redirectTo({
-      url:'/pages/lock/lock',
-    })
+    if (this.redirectURL) {
+      wx.redirectTo({
+        url:this.redirectURL,
+      })
+    }
   }
 })
