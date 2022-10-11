@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing";
+
 // pages/lock/lock.ts
 const shareLocationKey = "share_location"
 const avaterURLKey = "avater_url";
@@ -7,9 +9,10 @@ Page({
     shareLocation: false,
     avaterURL: "",
   },
-  onLoad(opt) {
+  onLoad(opt:Record<"car_id",string>) {
+    const o: routing.LockOpts = opt;
     //开锁后，需要知道开的是哪辆车的锁
-    console.log("unlocking car",opt.car_id)
+    console.log("unlocking car",o.car_id)
     const userInfo = getApp<IAppOption>().globalData.userInfo;
     if (userInfo) {
       this.setData({
@@ -67,7 +70,10 @@ Page({
         //模拟开锁成功的动作
         setTimeout(() => {
           wx.redirectTo({
-            url: `/pages/driving/driving?trip_id=${tripID}`,
+            // url: `/pages/driving/driving?trip_id=${tripID}`,
+            url: routing.driving({
+              trip_id:tripID
+            }),
             complete: () => {
               wx.hideLoading()
             }

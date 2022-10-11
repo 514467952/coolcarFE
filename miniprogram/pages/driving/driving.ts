@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing";
+
 // pages/driving/driving.ts
 const centPerSec = 0.5
 
@@ -30,9 +32,10 @@ Page({
     fee: '0.00',
   },
 
-  onLoad(opt) {
+  onLoad(opt: Record<"trip_id",string>) {
+    const o: routing.DrivingOpts = opt
     //获取从开锁页面传过来的行程id
-    console.log("获取当前行程:",opt.tripID)
+    console.log("获取当前行程:",o.trip_id)
     this.setupLocationUpdator()
     this.setupTimer()
   },

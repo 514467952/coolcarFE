@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 // 获取应用实例
 const app = getApp<IAppOption>()
 
@@ -59,11 +61,19 @@ Page({
   onScanClicked() {
     //TODO: get car id from scan result
     const carID = "car123"
-    const redirectURL = `/pages/lock/lock?car_id=${carID}`
+    // const redirectURL = `/pages/lock/lock?car_id=${carID}`
+    const redirectURL = routing.lock({
+      car_id:carID,
+    })
     wx.scanCode({
       success: () => {
+        // wx.navigateTo({
+        //   url:`/pages/register/register?redirect=${encodeURIComponent(redirectURL)}`
+        // })
         wx.navigateTo({
-          url:`/pages/register/register?redirect=${encodeURIComponent(redirectURL)}`
+          url: routing.register({
+            redirectURL: redirectURL,
+          })
         })
       },
       fail: res => console.log(res),
@@ -161,7 +171,7 @@ Page({
   //跳转到我的行程页面
   onMyTripsTap() {
     wx.navigateTo({
-      url: '/pages/mytrips/mytrips'
+      url: routing.mytrips()
     })
   },
 })

@@ -1,3 +1,5 @@
+import { routing } from "../../utils/routing"
+
 // pages/register/register.ts
 Page({
   redirectURL: "",
@@ -10,9 +12,10 @@ Page({
     licImgURL: "",
     state: "UNSUBMITTED" as "UNSUBMITTED" | "PENDING" | "VERIFIED",
   },
-  onLoad(opt) {
-    if(opt.redirect) {
-      this.redirectURL = decodeURIComponent(opt.redirect)
+  onLoad(opt: Record<"redirect",string>) {
+    const o: routing.RegisterOpts = opt
+    if(o.redirect) {
+      this.redirectURL = decodeURIComponent(o.redirect)
     } 
   },
   onBirthDayChange(e:any) {
