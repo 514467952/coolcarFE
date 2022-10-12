@@ -1,5 +1,15 @@
 import { routing } from "../../utils/routing";
 
+interface Trip {
+  id: string,
+  start: string,
+  end: string,
+  distance: string,
+  duration: string,
+  fee: string,
+  status: string
+}
+
 // pages/mytrips/mytrips.ts
 Page({
   data: {
@@ -31,10 +41,15 @@ Page({
         img:"https://img1.mukewang.com/6340d874000145fb17920764.jpg",
         promotionID: 4,
       },     
-    ]
+    ],
+    trips: [] as Trip[],
+    tripsHeight: 0,
+    scrollTop: 0,
+    scrollIntoView: "", //当前是哪个cell
   },
 
   onLoad() {
+    this.populateTrips()
     const userInfo = getApp<IAppOption>().globalData.userInfo;
     if (userInfo) {
       this.setData({
@@ -42,6 +57,35 @@ Page({
       })
     }
     console.log("我的行程页面加载")
+  },
+
+  onReady() {
+    //获取元素高度
+    //.exec让下面代码运行
+    wx.createSelectorQuery().select("#heading").boundingClientRect(rect => {
+      this.setData({
+        tripsHeight: wx.getSystemInfoSync().windowHeight - rect.height
+      })
+    }).exec()
+  },
+
+  //scrollView数据
+  populateTrips() {
+    const trips: Trip[] = []
+    for(let i = 0;i < 100; i++) {
+      trips.push({
+        id: (10001 + i).toString(),
+        start: "东方明珠",
+        end: "迪士尼",
+        distance: "27公里",
+        duration: "0时44分",
+        fee: "128.00元",
+        status: "已完成",
+      })
+    }
+    this.setData({
+      trips,
+    })
   },
 
   //轮播图事件

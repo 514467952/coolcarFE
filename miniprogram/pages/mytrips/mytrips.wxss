@@ -14,3 +14,32 @@ swiper {
     align-items: center;
     justify-content: flex-end;
 }
+
+.detail-row {
+    display: flex;
+}
+
+.trip {
+    border-radius: 25rpx;
+}
+
+.fee {
+    font-style: italic;
+}
+
+.trip-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mytrips-heading {
+    position: absolute;
+    left: 50rpx;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.nav-container {
+    display: flex;
+}
