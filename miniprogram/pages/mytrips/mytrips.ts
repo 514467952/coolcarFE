@@ -1,5 +1,6 @@
 import { routing } from "../../utils/routing";
 
+//每个cell数据结构
 interface Trip {
   id: string,
   start: string,
@@ -10,8 +11,35 @@ interface Trip {
   status: string
 }
 
+//主cell的数据
+interface MainItem {
+  id: string,
+  navID: string,
+  navScrollId: string,
+  data: Trip
+}
+
+//导航栏数据
+interface NavItem {
+  id: string,
+  mainId: string,
+  label: string,
+}
+
+interface MainItemQueryResult {
+  id: string,
+  top: number,
+  dataset: {
+    navId: string,
+    navScrollId: string,
+  }
+}
+
 // pages/mytrips/mytrips.ts
 Page({
+  scrollStates: {
+    mainItems: [] as MainItemQueryResult[]
+  },
   data: {
     avatarURL: "",
     indicatorDots: true,
@@ -42,10 +70,13 @@ Page({
         promotionID: 4,
       },     
     ],
-    trips: [] as Trip[],
+    mainItems: [] as MainItem[],
     tripsHeight: 0,
-    scrollTop: 0,
-    scrollIntoView: "", //当前是哪个cell
+    navItems: [] as NavItem[],
+    mainScroll: "", //当前是哪个cell
+    navCount: 0, //右侧能展示多少元素
+    navSelect: "", //右侧当前选择的元素
+    navScroll: "", 
   },
 
   onLoad() {
@@ -63,28 +94,69 @@ Page({
     //获取元素高度
     //.exec让下面代码运行
     wx.createSelectorQuery().select("#heading").boundingClientRect(rect => {
+      const wxHeight = wx.getSystemInfoSync().windowHeight - rect.height
       this.setData({
-        tripsHeight: wx.getSystemInfoSync().windowHeight - rect.height
+        tripsHeight: wxHeight,
+        navCount: Math.round(wxHeight/40),
       })
     }).exec()
   },
 
   //scrollView数据
   populateTrips() {
-    const trips: Trip[] = []
+    const mainItems: MainItem[] = []
+    const navItems: NavItem[] = []
+    let navSelect  = "";
+    let prevNav = "";
     for(let i = 0;i < 100; i++) {
-      trips.push({
-        id: (10001 + i).toString(),
-        start: "东方明珠",
-        end: "迪士尼",
-        distance: "27公里",
-        duration: "0时44分",
-        fee: "128.00元",
-        status: "已完成",
+      const mainID = "main-" + i;
+      const navID = "nav-" + i;
+      const tripId = (10001 + i).toString()
+      if (!prevNav) {
+        prevNav: navID
+      }
+      mainItems.push({
+        id: mainID,
+        navID: navID,
+        navScrollId: prevNav,
+        data: {
+          id: tripId,
+          start: "东方明珠",
+          end: "迪士尼",
+          distance: "27公里",
+          duration: "0时44分",
+          fee: "128.00元",
+          status: "已完成",
+        }
+      }),
+      navItems.push({
+        id:navID,
+        mainId: mainID,
+        label: tripId,
       })
+      if (i === 0) {
+        navSelect = navID
+      }
+      prevNav = navID
     }
     this.setData({
-      trips,
+      mainItems,
+      navItems,
+      navSelect,
+    },() => {
+      this.prepareScrollStates()
+    })
+  },
+
+  //计算scrollView中所有cell的高度
+  prepareScrollStates() {
+    wx.createSelectorQuery().selectAll(".main-item").fields({
+      id: true,
+      dataset: true,
+      rect: true,
+    }).exec(res => {
+      console.log(res)
+      this.scrollStates.mainItems = res[0]
     })
   },
 
@@ -120,6 +192,37 @@ Page({
   onRegisterTap() {
     wx.navigateTo({
       url: routing.register(),
+    })
+  },
+
+  //点击右侧导航栏
+  onNavItemTap(e:any) {
+    console.log(e)
+    const mainId: string = e.currentTarget?.dataset?.mainId
+    const navId: string = e.currentTarget?.id
+    if (mainId) {
+      this.setData({
+        mainScroll:mainId,
+        navSelect: navId
+      })
+    }
+  },
+
+  //左侧scrollView滚动
+  onMainLeftScroll(e: any) {
+    console.log(e)
+    const top: number = e.currentTarget?.offsetTop + e.detail.scrollTop
+    if (top === undefined) {
+      return
+    }
+    const selItem =  this.scrollStates.mainItems.find(v => v.top >= top)
+    if (!selItem) {
+      return
+    }
+
+    this.setData({
+      navSelect: selItem.dataset.navId,
+      navScroll: selItem.dataset.navScrollId,
     })
   }
 })

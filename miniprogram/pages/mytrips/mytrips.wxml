@@ -17,50 +17,66 @@
     </view>
 </view>
 <view class="nav-container">
+    <!--右侧导航-->
+    <swiper duration="500" display-multiple-items="{{navCount}}"
+        vertical style="height:{{tripsHeight}}px" class="bg-white nav"
+        current-item-id="{{navScroll}}">
+        <swiper-item wx:for="{{navItems}}" wx:key="id"
+            item-id="{{item.id}}" data-main-id="{{item.mainId}}"
+            class="cu-item {{navSelect === item.id ? 'text-green' : ''}}" 
+            bindtap="onNavItemTap" id="{{item.id}}">
+            <view>{{item.label}}</view>
+            <view wx:if="{{navSelect === item.id}}" class="cur"></view>
+        </swiper-item>
+    </swiper>
+
     <!-- 垂直导航 -->
     <scroll-view scroll-y 
     scroll-with-animation="{{true}}" 
     enable-back-to-top="{{true}}" 
     style="height:{{tripsHeight}}px"
     scroll-top="{{scrollTop}}"
-    scroll-into-view="{{scrollIntoView}}">
+    scroll-into-view="{{mainScroll}}"
+    bindscroll="onMainLeftScroll">
         <!-- 循环读取数据 -->
-        <view wx:for="{{trips}}" wx:key="id" 
-        class="bg-white margin-bottom margin-lr padding-bottom trip"
-        id="main-{{item.id}}">
+        <view wx:for="{{mainItems}}" wx:key="id" 
+        class="bg-white margin-bottom margin-lr padding-bottom trip main-item"
+        id="{{item.id}}"
+        data-nav-id="{{item.navID}}"
+        data-nav-scroll-id="{{item.navScrollId}}">
             <!-- 统一在一个白色的view里面 -->
             <view class="bg-white margin-bottom margin-lr padding-bottom trip">
                 <view class="cu-bar solid-bottom bg-white">
                     <!-- 每个cell的id -->
                     <view class='action'>
                         <text class='cuIcon-title text-green'></text>
-                        {{item.id}}
+                        {{item.data.id}}
                     </view>
                     <!--已完成的view-->
-                    <view>{{item.status}}</view>
+                    <view>{{item.data.status}}</view>
                 </view>
                 <!-- 其他组件 -->
                 <view class="trip-detail padding-right">
                     <view class="detail-l">
                         <view class="detail-row">
                             <view class="field padding-lr">起</view>
-                            <view class="value text-black text-bold">{{item.start}}</view>
+                            <view class="value text-black text-bold">{{item.data.start}}</view>
                         </view>
                         <view class="detail-row">
                             <view class="field padding-lr">终</view>
-                            <view class="value text-black text-bold">{{item.end}}</view>
+                            <view class="value text-black text-bold">{{item.data.end}}</view>
                         </view>
                         <view class="detail-row">
                             <view class="field padding-lr">距</view>
-                            <view class="value text-black text-bold">{{item.distance}}</view>
+                            <view class="value text-black text-bold">{{item.data.distance}}</view>
                         </view>
                         <view class="detail-row">
                             <view class="field padding-lr">时</view>
-                            <view class="value text-black text-bold">{{item.duration}}</view>
+                            <view class="value text-black text-bold">{{item.data.duration}}</view>
                         </view>
                     </view>
                     <view class="detail-r">
-                        <view class="fee text-xxl text-price text-bold">{{item.fee}}</view>
+                        <view class="fee text-xxl text-price text-bold">{{item.data.fee}}</view>
                     </view>
                 </view>
             </view>
