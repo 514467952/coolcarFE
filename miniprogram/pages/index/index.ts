@@ -46,7 +46,7 @@ Page({
         width:50,
         height:50
       }
-    ]
+    ],
   },
   onLoad() {
     const userInfo = app.globalData.userInfo
@@ -66,10 +66,11 @@ Page({
       car_id:carID,
     })
     wx.scanCode({
-      success: () => {
+      success: async () => {
         // wx.navigateTo({
         //   url:`/pages/register/register?redirect=${encodeURIComponent(redirectURL)}`
         // })
+        await this.selectComponent("#licModal").showModal()
         wx.navigateTo({
           url: routing.register({
             redirectURL: redirectURL,

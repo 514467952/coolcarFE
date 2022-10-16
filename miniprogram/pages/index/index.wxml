@@ -18,3 +18,8 @@
   </cover-view>
 </map>
 
+<model id="licModal"
+title="身份认证" 
+contents="需要身份认证才能租车">
+
+</model>
