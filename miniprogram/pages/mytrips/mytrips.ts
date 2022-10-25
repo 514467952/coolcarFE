@@ -161,7 +161,7 @@ Page({
   },
 
   //轮播图事件
-  onSwiperChange(e: any) {
+  onSwiperChange() {
     // console.log(e)
   },
 

@@ -2,7 +2,7 @@ import { routing } from "../../utils/routing";
 
 // pages/lock/lock.ts
 const shareLocationKey = "share_location"
-const avaterURLKey = "avater_url";
+// const avaterURLKey = "avater_url";
 
 Page({
   data: {

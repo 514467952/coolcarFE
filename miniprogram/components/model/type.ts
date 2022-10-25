@@ -1,1 +1,1 @@
-export type ModelResult = "ok"|"cancel"|"close"
+export type ModalResult = "ok"|"cancel"|"close"
