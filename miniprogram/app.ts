@@ -1,3 +1,4 @@
+
 import { coolcar } from "./service/proto_gen/trip_pb"
 
 // app.ts
@@ -10,6 +11,8 @@ App<IAppOption>({
       success: res => {
         const getTripRes = coolcar.GetTripResponse.fromObject(res.data as object)
         console.log(getTripRes)
+        //验证下枚举类型
+        console.log("status is",coolcar.TripStatus[getTripRes.trip?.status!])
       },
       fail: console.error,
     })
