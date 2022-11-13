@@ -1,21 +1,11 @@
 
+import { auth } from "./service/proto_gen/auth/auth_pb"
 import { coolcar } from "./service/proto_gen/trip_pb"
 
 // app.ts
 App<IAppOption>({
   globalData: {},
   onLaunch() {
-    wx.request({
-      url:"http://106.54.49.241:8080/trip/trip123",
-      method: "GET",
-      success: res => {
-        const getTripRes = coolcar.GetTripResponse.fromObject(res.data as object)
-        console.log(getTripRes)
-        //验证下枚举类型
-        console.log("status is",coolcar.TripStatus[getTripRes.trip?.status!])
-      },
-      fail: console.error,
-    })
 
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
@@ -27,6 +17,15 @@ App<IAppOption>({
       success: res => {
         console.log(res.code)
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: "http://106.54.49.241:8080/v1/auth/login",
+          method: "POST",
+          data: {
+            code: res.code
+          } as auth.v1.ILoginRequest,
+          success: console.log,
+          fail: console.error,
+        })
       },
     })
   },
