@@ -1,3 +1,4 @@
+import * as $protobuf from "protobufjs";
 // Common aliases
 const $Reader = $protobuf.Reader, $Writer = $protobuf.Writer, $util = $protobuf.util;
 

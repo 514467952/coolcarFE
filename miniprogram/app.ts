@@ -1,6 +1,7 @@
 
 import { auth } from "./service/proto_gen/auth/auth_pb"
 import {rental} from "./service/proto_gen/rental/rental_pb"
+// import { coolcar } from "./service/proto_gen/trip_pb"
 
 // app.ts
 App<IAppOption>({
@@ -25,7 +26,9 @@ App<IAppOption>({
           } as auth.v1.ILoginRequest,
           success: res => {
             console.log(res)
-            var token = res.data.accessToken
+            const loginResp: auth.v1.ILoginResponse = auth.v1.LoginResponse.fromObject(res.data as object)
+            console.log("lxy:",loginResp.accessToken)
+            var token = loginResp.accessToken
             wx.request({
               url:"http://106.54.49.241:8080/v1/trip",
               method:"POST",
@@ -33,7 +36,7 @@ App<IAppOption>({
                 start:"abc",
               } as rental.v1.ICreateTripRequest,
               header: {
-                authorization : "Bearer" + token
+                authorization : "Bearer " + token
               }
             })
           },
