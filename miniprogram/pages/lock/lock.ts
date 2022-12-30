@@ -1,3 +1,4 @@
+import { TripService } from "../../service/trip";
 import { routing } from "../../utils/routing";
 
 // pages/lock/lock.ts
@@ -60,9 +61,12 @@ Page({
           },
           avaterURL: this.data.avaterURL,
         });
+        TripService.CreateTrip({
+          start:"测试行程",
+        })
+        return 
         //创建行程
         const tripID = "trip456";
-
         wx.showLoading({
           title: "开锁中",
           mask: true,
