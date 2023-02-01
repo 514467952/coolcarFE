@@ -6,12 +6,16 @@ const shareLocationKey = "share_location"
 // const avaterURLKey = "avater_url";
 
 Page({
+  carID: "",
+  reqLoc: {},
   data: {
     shareLocation: false,
     avaterURL: "",
   },
-  onLoad(opt:Record<"car_id",string>) {
+  async onLoad(opt:Record<"car_id",string>) {
     const o: routing.LockOpts = opt;
+    //存储carID
+    this.carID = o.car_id
     //开锁后，需要知道开的是哪辆车的锁
     console.log("unlocking car",o.car_id)
     const userInfo = getApp<IAppOption>().globalData.userInfo;
@@ -51,22 +55,40 @@ Page({
   //开锁按钮点击
   onUnLockTap() {
     wx.getLocation({
-      type: "gcj02",
-      success: res => {
+
+      success: async loc => {
+        this.reqLoc = loc
         //告诉服务器我们的位置
         console.log("开始路程", {
           location: {
-            latitude: res.latitude,
-            longitude: res.longitude,
+            latitude: loc.latitude,
+            longitude: loc.longitude,
           },
           avaterURL: this.data.avaterURL,
         });
-        TripService.CreateTrip({
-          start:"测试行程",
+        this.carID = "demo_car"
+        if (!this.carID) {
+          console.error("no carID specified")
+          return
+        }
+
+        var location =  {
+          latitude: this.reqLoc.latitude,
+          longitude: this.reqLoc.longitude,
+        }
+
+        const trip = await TripService.CreateTrip({
+          start: location,
+          carId: this.carID,
         })
-        return 
+
+        console.log("trip服务返回",trip)
+        if (!trip.id) {
+          console.error("no tripId in respnse",trip)
+          return
+        }
+
         //创建行程
-        const tripID = "trip456";
         wx.showLoading({
           title: "开锁中",
           mask: true,
@@ -76,7 +98,7 @@ Page({
           wx.redirectTo({
             // url: `/pages/driving/driving?trip_id=${tripID}`,
             url: routing.driving({
-              trip_id:tripID
+              trip_id: trip.id!,
             }),
             complete: () => {
               wx.hideLoading()
