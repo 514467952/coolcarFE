@@ -1,3 +1,4 @@
+import { TripService } from "../../service/trip";
 import { routing } from "../../utils/routing";
 
 // pages/driving/driving.ts
@@ -36,6 +37,8 @@ Page({
     const o: routing.DrivingOpts = opt
     //获取从开锁页面传过来的行程id
     console.log("获取当前行程:",o.trip_id)
+    o.trip_id =  "63d9c87b4218119c8feaeccf"
+    TripService.GetTrip(o.trip_id).then(console.log)
     this.setupLocationUpdator()
     this.setupTimer()
   },

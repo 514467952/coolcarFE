@@ -1,3 +1,4 @@
+import { TripService } from "../../service/trip";
 import { routing } from "../../utils/routing";
 
 //每个cell数据结构
@@ -79,7 +80,9 @@ Page({
     navScroll: "", 
   },
 
-  onLoad() {
+  async onLoad() {
+    const res = await TripService.GetTrips()
+    console.log(res)
     this.populateTrips()
     const userInfo = getApp<IAppOption>().globalData.userInfo;
     if (userInfo) {
