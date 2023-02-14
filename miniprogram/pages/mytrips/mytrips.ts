@@ -1,3 +1,5 @@
+import { ProfileService } from "../../service/profile";
+import { rental } from "../../service/proto_gen/rental/rental_pb";
 import { TripService } from "../../service/trip";
 import { routing } from "../../utils/routing";
 
@@ -36,12 +38,19 @@ interface MainItemQueryResult {
   }
 }
 
+const licStatusMap = new Map([
+  [rental.v1.IdentityStatus.UNSUBMITTED,"未认证"],
+  [rental.v1.IdentityStatus.PENDING,"未认证"],
+  [rental.v1.IdentityStatus.VERIFIED,"已认证"],
+])
+
 // pages/mytrips/mytrips.ts
 Page({
   scrollStates: {
     mainItems: [] as MainItemQueryResult[]
   },
   data: {
+    licStatus: licStatusMap.get(rental.v1.IdentityStatus.UNSUBMITTED),
     avatarURL: "",
     indicatorDots: true,
     autoPlay: false,
@@ -91,6 +100,14 @@ Page({
       })
     }
     console.log("我的行程页面加载")
+  },
+
+  onShow() {
+    ProfileService.getProfile().then(p=>{
+      this.setData({
+        licStatus:licStatusMap.get(p.identityStatus ||0)
+      })
+    })
   },
 
   onReady() {
