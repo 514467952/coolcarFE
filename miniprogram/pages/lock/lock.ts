@@ -55,7 +55,6 @@ Page({
   //开锁按钮点击
   onUnLockTap() {
     wx.getLocation({
-
       success: async loc => {
         this.reqLoc = loc
         //告诉服务器我们的位置

@@ -1,3 +1,6 @@
+import { ProfileService } from "../../service/profile"
+import { rental } from "../../service/proto_gen/rental/rental_pb"
+import { TripService } from "../../service/trip"
 import { routing } from "../../utils/routing"
 
 // 获取应用实例
@@ -58,24 +61,41 @@ Page({
     console.log("首页加载")
   },
   //扫码功能
-  onScanClicked() {
-    //TODO: get car id from scan result
-    const carID = "car123"
-    // const redirectURL = `/pages/lock/lock?car_id=${carID}`
-    const redirectURL = routing.lock({
-      car_id:carID,
-    })
+  async onScanClicked() {
+    //获取有没有正在进行中的行程
+    const trips = await TripService.GetTrips(rental.v1.TripStatus.IN_PROGRESS)
+    if ((trips.trips?.length || 0) > 0) {
+      await this.selectComponent('#tripModal').showModel()
+      wx.navigateTo({
+        url:routing.driving({
+          trip_id: trips.trips![0].id!,
+        }),
+      })
+      return 
+    }
+
+
     wx.scanCode({
       success: async () => {
-        // wx.navigateTo({
-        //   url:`/pages/register/register?redirect=${encodeURIComponent(redirectURL)}`
-        // })
-        await this.selectComponent("#licModal").showModal()
-        wx.navigateTo({
-          url: routing.register({
-            redirectURL: redirectURL,
-          })
+        const carID = "car123"
+        const lockURL = routing.lock({
+          car_id: carID,
         })
+        //身份认证过了去开锁页
+        const prof = await ProfileService.getProfile()
+        if (prof.identityStatus === rental.v1.IdentityStatus.VERIFIED) {
+          wx.navigateTo({
+            url:lockURL,
+          })
+        } else {
+          //去身份认证页
+          await this.selectComponent("#licModal").showModal()
+          wx.navigateTo({
+            url: routing.register({
+              redirectURL: lockURL,
+            })
+          })
+        }
       },
       fail: res => console.log(res),
     })
