@@ -1,3 +1,4 @@
+import { rental } from "../../service/proto_gen/rental/rental_pb";
 import { TripService } from "../../service/trip";
 import { routing } from "../../utils/routing";
 
@@ -65,7 +66,7 @@ Page({
           },
           avaterURL: this.data.avaterURL,
         });
-        this.carID = "demo_car"
+        
         if (!this.carID) {
           console.error("no carID specified")
           return
@@ -75,23 +76,30 @@ Page({
           latitude: this.reqLoc.latitude,
           longitude: this.reqLoc.longitude,
         }
-
-        const trip = await TripService.CreateTrip({
-          start: location,
-          carId: this.carID,
-        })
-
-        console.log("trip服务返回",trip)
-        if (!trip.id) {
-          console.error("no tripId in respnse",trip)
-          return
+        let trip: rental.v1.ITripEntity
+        try {
+          trip = await TripService.CreateTrip({
+            start: location,
+            carId: this.carID,
+          })
+          if (!trip.id) {
+            console.log("no tripID in response",trip)
+            return
+          }
+        } catch (err) {
+          wx.showToast({
+            title:"创建行程失败,请联系客服",
+            icon: "none",
+          })
+          return 
         }
-
-        //创建行程
+        //模拟开锁的弹窗
         wx.showLoading({
           title: "开锁中",
           mask: true,
         }),
+
+
         //模拟开锁成功的动作
         setTimeout(() => {
           wx.redirectTo({
