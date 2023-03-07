@@ -15,6 +15,6 @@ App<IAppOption>({
     wx.setStorageSync('logs', logs)
 
     // 登录
-    Coolcar.Login()
+    Coolcar.login()
   },
 })
