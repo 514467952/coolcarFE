@@ -69,20 +69,20 @@ Page({
   onUploadLic() {
     wx.chooseMedia({
       success: res => {
-        if(res.tempFiles) {
+        if(res.tempFiles.length > 0) {
           this.setData({
             licImgURL: res.tempFiles[0].tempFilePath,
           })
 
-          //ToDo- 更新信息
-          setTimeout(() => {
-            this.setData({
-              licNo:"3252452345",
-              name:"张三",
-              gendersIndex:1,
-              birthDate:"1989-12-02",
-            })
-          }, 1000);
+          //读图片的数据
+          const data = wx.getFileSystemManager().readFileSync(res.tempFiles[0].tempFilePath)
+          wx.request({
+            method:'PUT',
+            url:"https://coolcar-1300226989.cos.ap-beijing.myqcloud.com/abc.jpg?q-sign-algorithm=sha1&q-ak=AKIDRfieXFjpgGjz1sToupWyUklW0DCuKTM5&q-sign-time=1678154030%3B1678157630&q-key-time=1678154030%3B1678157630&q-header-list=host&q-url-param-list=&q-signature=419bb9ac6667d69df228d12382a8074c9e728f87",
+            data,
+            success:console.log,
+            fail:console.error,
+          })
         }
       }
     })
