@@ -110,6 +110,7 @@ export namespace Coolcar {
         url: string
     }
     export function uploadfile(o: UploadFileOpts): Promise<void> {
+        //获取文件内容
         const data = wx.getFileSystemManager().readFileSync(o.localPath)
         return new Promise((resolve, reject) => {
             wx.request({

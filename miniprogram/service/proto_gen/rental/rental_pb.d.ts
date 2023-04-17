@@ -1406,6 +1406,696 @@ export namespace rental {
             public toJSON(): { [k: string]: any };
         }
 
+        /** Properties of a GetProfilePhotoRequest. */
+        interface IGetProfilePhotoRequest {
+        }
+
+        /** Represents a GetProfilePhotoRequest. */
+        class GetProfilePhotoRequest implements IGetProfilePhotoRequest {
+
+            /**
+             * Constructs a new GetProfilePhotoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.IGetProfilePhotoRequest);
+
+            /**
+             * Creates a new GetProfilePhotoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetProfilePhotoRequest instance
+             */
+            public static create(properties?: rental.v1.IGetProfilePhotoRequest): rental.v1.GetProfilePhotoRequest;
+
+            /**
+             * Encodes the specified GetProfilePhotoRequest message. Does not implicitly {@link rental.v1.GetProfilePhotoRequest.verify|verify} messages.
+             * @param message GetProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.IGetProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetProfilePhotoRequest message, length delimited. Does not implicitly {@link rental.v1.GetProfilePhotoRequest.verify|verify} messages.
+             * @param message GetProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.IGetProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetProfilePhotoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.GetProfilePhotoRequest;
+
+            /**
+             * Decodes a GetProfilePhotoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.GetProfilePhotoRequest;
+
+            /**
+             * Verifies a GetProfilePhotoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetProfilePhotoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetProfilePhotoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.GetProfilePhotoRequest;
+
+            /**
+             * Creates a plain object from a GetProfilePhotoRequest message. Also converts values to other types if specified.
+             * @param message GetProfilePhotoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.GetProfilePhotoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetProfilePhotoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a GetProfilePhotoResponse. */
+        interface IGetProfilePhotoResponse {
+
+            /** GetProfilePhotoResponse uploadUrl */
+            uploadUrl?: (string|null);
+        }
+
+        /** Represents a GetProfilePhotoResponse. */
+        class GetProfilePhotoResponse implements IGetProfilePhotoResponse {
+
+            /**
+             * Constructs a new GetProfilePhotoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.IGetProfilePhotoResponse);
+
+            /** GetProfilePhotoResponse uploadUrl. */
+            public uploadUrl: string;
+
+            /**
+             * Creates a new GetProfilePhotoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns GetProfilePhotoResponse instance
+             */
+            public static create(properties?: rental.v1.IGetProfilePhotoResponse): rental.v1.GetProfilePhotoResponse;
+
+            /**
+             * Encodes the specified GetProfilePhotoResponse message. Does not implicitly {@link rental.v1.GetProfilePhotoResponse.verify|verify} messages.
+             * @param message GetProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.IGetProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified GetProfilePhotoResponse message, length delimited. Does not implicitly {@link rental.v1.GetProfilePhotoResponse.verify|verify} messages.
+             * @param message GetProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.IGetProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a GetProfilePhotoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns GetProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.GetProfilePhotoResponse;
+
+            /**
+             * Decodes a GetProfilePhotoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns GetProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.GetProfilePhotoResponse;
+
+            /**
+             * Verifies a GetProfilePhotoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a GetProfilePhotoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns GetProfilePhotoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.GetProfilePhotoResponse;
+
+            /**
+             * Creates a plain object from a GetProfilePhotoResponse message. Also converts values to other types if specified.
+             * @param message GetProfilePhotoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.GetProfilePhotoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this GetProfilePhotoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CreateProfilePhotoRequest. */
+        interface ICreateProfilePhotoRequest {
+        }
+
+        /** Represents a CreateProfilePhotoRequest. */
+        class CreateProfilePhotoRequest implements ICreateProfilePhotoRequest {
+
+            /**
+             * Constructs a new CreateProfilePhotoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.ICreateProfilePhotoRequest);
+
+            /**
+             * Creates a new CreateProfilePhotoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CreateProfilePhotoRequest instance
+             */
+            public static create(properties?: rental.v1.ICreateProfilePhotoRequest): rental.v1.CreateProfilePhotoRequest;
+
+            /**
+             * Encodes the specified CreateProfilePhotoRequest message. Does not implicitly {@link rental.v1.CreateProfilePhotoRequest.verify|verify} messages.
+             * @param message CreateProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.ICreateProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CreateProfilePhotoRequest message, length delimited. Does not implicitly {@link rental.v1.CreateProfilePhotoRequest.verify|verify} messages.
+             * @param message CreateProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.ICreateProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CreateProfilePhotoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CreateProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.CreateProfilePhotoRequest;
+
+            /**
+             * Decodes a CreateProfilePhotoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CreateProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.CreateProfilePhotoRequest;
+
+            /**
+             * Verifies a CreateProfilePhotoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CreateProfilePhotoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CreateProfilePhotoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.CreateProfilePhotoRequest;
+
+            /**
+             * Creates a plain object from a CreateProfilePhotoRequest message. Also converts values to other types if specified.
+             * @param message CreateProfilePhotoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.CreateProfilePhotoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CreateProfilePhotoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CreateProfilePhotoResponse. */
+        interface ICreateProfilePhotoResponse {
+
+            /** CreateProfilePhotoResponse uploadUrl */
+            uploadUrl?: (string|null);
+        }
+
+        /** Represents a CreateProfilePhotoResponse. */
+        class CreateProfilePhotoResponse implements ICreateProfilePhotoResponse {
+
+            /**
+             * Constructs a new CreateProfilePhotoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.ICreateProfilePhotoResponse);
+
+            /** CreateProfilePhotoResponse uploadUrl. */
+            public uploadUrl: string;
+
+            /**
+             * Creates a new CreateProfilePhotoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CreateProfilePhotoResponse instance
+             */
+            public static create(properties?: rental.v1.ICreateProfilePhotoResponse): rental.v1.CreateProfilePhotoResponse;
+
+            /**
+             * Encodes the specified CreateProfilePhotoResponse message. Does not implicitly {@link rental.v1.CreateProfilePhotoResponse.verify|verify} messages.
+             * @param message CreateProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.ICreateProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CreateProfilePhotoResponse message, length delimited. Does not implicitly {@link rental.v1.CreateProfilePhotoResponse.verify|verify} messages.
+             * @param message CreateProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.ICreateProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CreateProfilePhotoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CreateProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.CreateProfilePhotoResponse;
+
+            /**
+             * Decodes a CreateProfilePhotoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CreateProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.CreateProfilePhotoResponse;
+
+            /**
+             * Verifies a CreateProfilePhotoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CreateProfilePhotoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CreateProfilePhotoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.CreateProfilePhotoResponse;
+
+            /**
+             * Creates a plain object from a CreateProfilePhotoResponse message. Also converts values to other types if specified.
+             * @param message CreateProfilePhotoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.CreateProfilePhotoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CreateProfilePhotoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CompleteProfilePhotoRequest. */
+        interface ICompleteProfilePhotoRequest {
+        }
+
+        /** Represents a CompleteProfilePhotoRequest. */
+        class CompleteProfilePhotoRequest implements ICompleteProfilePhotoRequest {
+
+            /**
+             * Constructs a new CompleteProfilePhotoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.ICompleteProfilePhotoRequest);
+
+            /**
+             * Creates a new CompleteProfilePhotoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CompleteProfilePhotoRequest instance
+             */
+            public static create(properties?: rental.v1.ICompleteProfilePhotoRequest): rental.v1.CompleteProfilePhotoRequest;
+
+            /**
+             * Encodes the specified CompleteProfilePhotoRequest message. Does not implicitly {@link rental.v1.CompleteProfilePhotoRequest.verify|verify} messages.
+             * @param message CompleteProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.ICompleteProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CompleteProfilePhotoRequest message, length delimited. Does not implicitly {@link rental.v1.CompleteProfilePhotoRequest.verify|verify} messages.
+             * @param message CompleteProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.ICompleteProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CompleteProfilePhotoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CompleteProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.CompleteProfilePhotoRequest;
+
+            /**
+             * Decodes a CompleteProfilePhotoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CompleteProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.CompleteProfilePhotoRequest;
+
+            /**
+             * Verifies a CompleteProfilePhotoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CompleteProfilePhotoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CompleteProfilePhotoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.CompleteProfilePhotoRequest;
+
+            /**
+             * Creates a plain object from a CompleteProfilePhotoRequest message. Also converts values to other types if specified.
+             * @param message CompleteProfilePhotoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.CompleteProfilePhotoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CompleteProfilePhotoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a CompleteProfilePhotoResponse. */
+        interface ICompleteProfilePhotoResponse {
+
+            /** CompleteProfilePhotoResponse identity */
+            identity?: (rental.v1.IIdentity|null);
+        }
+
+        /** Represents a CompleteProfilePhotoResponse. */
+        class CompleteProfilePhotoResponse implements ICompleteProfilePhotoResponse {
+
+            /**
+             * Constructs a new CompleteProfilePhotoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.ICompleteProfilePhotoResponse);
+
+            /** CompleteProfilePhotoResponse identity. */
+            public identity?: (rental.v1.IIdentity|null);
+
+            /**
+             * Creates a new CompleteProfilePhotoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns CompleteProfilePhotoResponse instance
+             */
+            public static create(properties?: rental.v1.ICompleteProfilePhotoResponse): rental.v1.CompleteProfilePhotoResponse;
+
+            /**
+             * Encodes the specified CompleteProfilePhotoResponse message. Does not implicitly {@link rental.v1.CompleteProfilePhotoResponse.verify|verify} messages.
+             * @param message CompleteProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.ICompleteProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified CompleteProfilePhotoResponse message, length delimited. Does not implicitly {@link rental.v1.CompleteProfilePhotoResponse.verify|verify} messages.
+             * @param message CompleteProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.ICompleteProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a CompleteProfilePhotoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns CompleteProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.CompleteProfilePhotoResponse;
+
+            /**
+             * Decodes a CompleteProfilePhotoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns CompleteProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.CompleteProfilePhotoResponse;
+
+            /**
+             * Verifies a CompleteProfilePhotoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a CompleteProfilePhotoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns CompleteProfilePhotoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.CompleteProfilePhotoResponse;
+
+            /**
+             * Creates a plain object from a CompleteProfilePhotoResponse message. Also converts values to other types if specified.
+             * @param message CompleteProfilePhotoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.CompleteProfilePhotoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this CompleteProfilePhotoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ClearProfilePhotoRequest. */
+        interface IClearProfilePhotoRequest {
+        }
+
+        /** Represents a ClearProfilePhotoRequest. */
+        class ClearProfilePhotoRequest implements IClearProfilePhotoRequest {
+
+            /**
+             * Constructs a new ClearProfilePhotoRequest.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.IClearProfilePhotoRequest);
+
+            /**
+             * Creates a new ClearProfilePhotoRequest instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ClearProfilePhotoRequest instance
+             */
+            public static create(properties?: rental.v1.IClearProfilePhotoRequest): rental.v1.ClearProfilePhotoRequest;
+
+            /**
+             * Encodes the specified ClearProfilePhotoRequest message. Does not implicitly {@link rental.v1.ClearProfilePhotoRequest.verify|verify} messages.
+             * @param message ClearProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.IClearProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ClearProfilePhotoRequest message, length delimited. Does not implicitly {@link rental.v1.ClearProfilePhotoRequest.verify|verify} messages.
+             * @param message ClearProfilePhotoRequest message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.IClearProfilePhotoRequest, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ClearProfilePhotoRequest message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ClearProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.ClearProfilePhotoRequest;
+
+            /**
+             * Decodes a ClearProfilePhotoRequest message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ClearProfilePhotoRequest
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.ClearProfilePhotoRequest;
+
+            /**
+             * Verifies a ClearProfilePhotoRequest message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ClearProfilePhotoRequest message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ClearProfilePhotoRequest
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.ClearProfilePhotoRequest;
+
+            /**
+             * Creates a plain object from a ClearProfilePhotoRequest message. Also converts values to other types if specified.
+             * @param message ClearProfilePhotoRequest
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.ClearProfilePhotoRequest, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ClearProfilePhotoRequest to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
+        /** Properties of a ClearProfilePhotoResponse. */
+        interface IClearProfilePhotoResponse {
+        }
+
+        /** Represents a ClearProfilePhotoResponse. */
+        class ClearProfilePhotoResponse implements IClearProfilePhotoResponse {
+
+            /**
+             * Constructs a new ClearProfilePhotoResponse.
+             * @param [properties] Properties to set
+             */
+            constructor(properties?: rental.v1.IClearProfilePhotoResponse);
+
+            /**
+             * Creates a new ClearProfilePhotoResponse instance using the specified properties.
+             * @param [properties] Properties to set
+             * @returns ClearProfilePhotoResponse instance
+             */
+            public static create(properties?: rental.v1.IClearProfilePhotoResponse): rental.v1.ClearProfilePhotoResponse;
+
+            /**
+             * Encodes the specified ClearProfilePhotoResponse message. Does not implicitly {@link rental.v1.ClearProfilePhotoResponse.verify|verify} messages.
+             * @param message ClearProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encode(message: rental.v1.IClearProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Encodes the specified ClearProfilePhotoResponse message, length delimited. Does not implicitly {@link rental.v1.ClearProfilePhotoResponse.verify|verify} messages.
+             * @param message ClearProfilePhotoResponse message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
+             */
+            public static encodeDelimited(message: rental.v1.IClearProfilePhotoResponse, writer?: $protobuf.Writer): $protobuf.Writer;
+
+            /**
+             * Decodes a ClearProfilePhotoResponse message from the specified reader or buffer.
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns ClearProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): rental.v1.ClearProfilePhotoResponse;
+
+            /**
+             * Decodes a ClearProfilePhotoResponse message from the specified reader or buffer, length delimited.
+             * @param reader Reader or buffer to decode from
+             * @returns ClearProfilePhotoResponse
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
+             */
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): rental.v1.ClearProfilePhotoResponse;
+
+            /**
+             * Verifies a ClearProfilePhotoResponse message.
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
+             */
+            public static verify(message: { [k: string]: any }): (string|null);
+
+            /**
+             * Creates a ClearProfilePhotoResponse message from a plain object. Also converts values to their respective internal types.
+             * @param object Plain object
+             * @returns ClearProfilePhotoResponse
+             */
+            public static fromObject(object: { [k: string]: any }): rental.v1.ClearProfilePhotoResponse;
+
+            /**
+             * Creates a plain object from a ClearProfilePhotoResponse message. Also converts values to other types if specified.
+             * @param message ClearProfilePhotoResponse
+             * @param [options] Conversion options
+             * @returns Plain object
+             */
+            public static toObject(message: rental.v1.ClearProfilePhotoResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+            /**
+             * Converts this ClearProfilePhotoResponse to JSON.
+             * @returns JSON object
+             */
+            public toJSON(): { [k: string]: any };
+        }
+
         /** Represents a ProfileService */
         class ProfileService extends $protobuf.rpc.Service {
 
@@ -1467,6 +2157,62 @@ export namespace rental {
              * @returns Promise
              */
             public clearProfile(request: rental.v1.IClearProfileRequest): Promise<rental.v1.Profile>;
+
+            /**
+             * Calls GetProfilePhoto.
+             * @param request GetProfilePhotoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and GetProfilePhotoResponse
+             */
+            public getProfilePhoto(request: rental.v1.IGetProfilePhotoRequest, callback: rental.v1.ProfileService.GetProfilePhotoCallback): void;
+
+            /**
+             * Calls GetProfilePhoto.
+             * @param request GetProfilePhotoRequest message or plain object
+             * @returns Promise
+             */
+            public getProfilePhoto(request: rental.v1.IGetProfilePhotoRequest): Promise<rental.v1.GetProfilePhotoResponse>;
+
+            /**
+             * Calls CreateProfilePhoto.
+             * @param request CreateProfilePhotoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and CreateProfilePhotoResponse
+             */
+            public createProfilePhoto(request: rental.v1.ICreateProfilePhotoRequest, callback: rental.v1.ProfileService.CreateProfilePhotoCallback): void;
+
+            /**
+             * Calls CreateProfilePhoto.
+             * @param request CreateProfilePhotoRequest message or plain object
+             * @returns Promise
+             */
+            public createProfilePhoto(request: rental.v1.ICreateProfilePhotoRequest): Promise<rental.v1.CreateProfilePhotoResponse>;
+
+            /**
+             * Calls CompleteProfilePhoto.
+             * @param request CompleteProfilePhotoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and CompleteProfilePhotoResponse
+             */
+            public completeProfilePhoto(request: rental.v1.ICompleteProfilePhotoRequest, callback: rental.v1.ProfileService.CompleteProfilePhotoCallback): void;
+
+            /**
+             * Calls CompleteProfilePhoto.
+             * @param request CompleteProfilePhotoRequest message or plain object
+             * @returns Promise
+             */
+            public completeProfilePhoto(request: rental.v1.ICompleteProfilePhotoRequest): Promise<rental.v1.CompleteProfilePhotoResponse>;
+
+            /**
+             * Calls ClearProfilePhoto.
+             * @param request ClearProfilePhotoRequest message or plain object
+             * @param callback Node-style callback called with the error, if any, and ClearProfilePhotoResponse
+             */
+            public clearProfilePhoto(request: rental.v1.IClearProfilePhotoRequest, callback: rental.v1.ProfileService.ClearProfilePhotoCallback): void;
+
+            /**
+             * Calls ClearProfilePhoto.
+             * @param request ClearProfilePhotoRequest message or plain object
+             * @returns Promise
+             */
+            public clearProfilePhoto(request: rental.v1.IClearProfilePhotoRequest): Promise<rental.v1.ClearProfilePhotoResponse>;
         }
 
         namespace ProfileService {
@@ -1491,6 +2237,34 @@ export namespace rental {
              * @param [response] Profile
              */
             type ClearProfileCallback = (error: (Error|null), response?: rental.v1.Profile) => void;
+
+            /**
+             * Callback as used by {@link rental.v1.ProfileService#getProfilePhoto}.
+             * @param error Error, if any
+             * @param [response] GetProfilePhotoResponse
+             */
+            type GetProfilePhotoCallback = (error: (Error|null), response?: rental.v1.GetProfilePhotoResponse) => void;
+
+            /**
+             * Callback as used by {@link rental.v1.ProfileService#createProfilePhoto}.
+             * @param error Error, if any
+             * @param [response] CreateProfilePhotoResponse
+             */
+            type CreateProfilePhotoCallback = (error: (Error|null), response?: rental.v1.CreateProfilePhotoResponse) => void;
+
+            /**
+             * Callback as used by {@link rental.v1.ProfileService#completeProfilePhoto}.
+             * @param error Error, if any
+             * @param [response] CompleteProfilePhotoResponse
+             */
+            type CompleteProfilePhotoCallback = (error: (Error|null), response?: rental.v1.CompleteProfilePhotoResponse) => void;
+
+            /**
+             * Callback as used by {@link rental.v1.ProfileService#clearProfilePhoto}.
+             * @param error Error, if any
+             * @param [response] ClearProfilePhotoResponse
+             */
+            type ClearProfilePhotoCallback = (error: (Error|null), response?: rental.v1.ClearProfilePhotoResponse) => void;
         }
     }
 }
